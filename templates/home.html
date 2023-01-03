@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} Bosh sahifa {% endblock title %}
+
+{% block content %}
+{% if user.is_authenticated %}
+{{ user.username }}, Saytga xush kelibsiz!
+<p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+<p>Siz saytga ro'yxatdan o'tmagansiz!</p>
+<button type="button" class="btn btn-outline-warning"><a href="{% url 'login' %}">Login</a></button>
+<button type="button" class="btn btn-outline-warning"><a href="{% url 'signup' %}">Ro'yxatdan o'tish</a></button><button type="button" class="btn btn-outline-warning"><a href="{% url 'article_list' %}">Malumotlar</a></button>
+{% endif %}
+{% endblock content %}
